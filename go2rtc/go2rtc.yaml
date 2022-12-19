@@ -1,0 +1,12 @@
+streams:
+  HDP:
+    - ffmpeg:"CAM_URL"#video=h264#audio=#audio=pcmu
+  SDP:
+    - ffmpeg:"CAM_URL"#video=h264#audio=#audio=pcmu
+  copy:
+    - ffmpeg:"CAM_URL"#video=copy#audio=#audio=
+webrtc:
+  listen: ":8555"  # address of your local server (TCP)
+
+log:
+  level: info  # default level
