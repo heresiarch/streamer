@@ -17,12 +17,12 @@ Stream #0:1: Audio: pcm_alaw, 8000 Hz, 1 channels, s16, 64 kb/s
 ## Tests on Odroid HC-4
 Transoding is a heavy task, first it needs to decode HEVC and reencode into x264, so I earn some delays I need to investigate. Also there is no HW acceleration enabled on the Odroid HC4 with ffmpeg (it has a good GPU but I found no SW support for ffmpeg).
 
-- go2rtc adds 7 sec delay when running on Odroid HC4 on the HD Stream
+- go2rtc has almost no delay (MP4 streams or RTSP)
 - HLS works but no audio and has too much delay 30 seconds for the HD Stream, good for streaming but bad for surveilance
 
-In comparision on a normal PC/Laptop with the following option there is no delay with the origin camera URL.
 ```bash
     ffplay -fflags nobuffer "CAM_URL"
+    ffply  -fflags nobuffer "RTSP or MP4 Stream URL from go2rtc" 
 ```
 ## TODO
 - Test with Raspi 4 (when it will becomes cheaper again)
